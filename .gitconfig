@@ -1,0 +1,28 @@
+
+[hub]
+protocol = https
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[core]
+excludesfile = /opt/boxen/config/git/gitignore
+editor = emacs
+[user]
+	name = Imdad Ahmed
+	email = imdhmd@gmail.com
+
+[push]
+default = simple
+
+[alias]
+l = log --oneline
+ds = diff --staged
+pr = pull --rebase
+d = diff
+ci = commit
+cmr = commit --amend --reset-author
+co = checkout
+lm = log --pretty=format:"%h%x09%an%x09%ad%x09%s"
+st = status
+cpk = cherry-pick
