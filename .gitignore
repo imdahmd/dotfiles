@@ -5,6 +5,7 @@
 .atom/
 .bash_history
 .cabal/
+.cargo/
 .citrix/
 .config/
 .cups/
