@@ -10,9 +10,9 @@
   "Load a file is current user's configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
-(defun read-string-from-file (file-path)
+(defun read-string-from-file (file)
   (with-temp-buffer
-    (insert-file-contents file-path)
+    (insert-file-contents (expand-file-name file user-init-dir))
     (buffer-string)))
 
 (load-user-file "emacs-settings.el")
