@@ -10,11 +10,16 @@
   "Load a file is current user's configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
+(defun read-string-from-file (file-path)
+  (with-temp-buffer
+    (insert-file-contents file-path)
+    (buffer-string)))
+
 (load-user-file "emacs-settings.el")
 (load-user-file "requires.el")
 (load-user-file "clojure.el")
 (load-user-file "java.el")
-(load-user-file "paradox-github-token.el")
+(load-user-file "paradox.el")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

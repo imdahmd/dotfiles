@@ -11,7 +11,7 @@
 .cups/
 .emacs.d/.sx/
 .emacs.d/elpa/
-.emacs.d/paradox-github-token.el
+.emacs.d/paradox-github-token
 .emacs.d/url/
 .gem/
 .ghc/
