@@ -5,3 +5,4 @@ alias la='ls -alt'
 alias ll='ls -lt'
 alias dev='cd ~/dev'
 alias py=python
+alias rerc='source .bash_profile'
