@@ -29,6 +29,7 @@
 .node-gyp/
 .npm/
 .nvm/
+.oracle_jre_usage/
 .psql_history
 .rnd
 .rvm/
