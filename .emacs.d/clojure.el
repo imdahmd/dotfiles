@@ -1,8 +1,9 @@
-(defvar clojure-packages '(;better-defaults
+(defvar clojure-packages '(better-defaults
 			   projectile
 			   clojure-mode
 			   cider
-			   paredit))
+			   paredit
+			   clj-refactor))
 
 (dolist (cp clojure-packages)
   (unless (package-installed-p cp)
