@@ -61,3 +61,5 @@ twu44/
 words-of-wisdom.org
 twu45/
 .boot/
+.android/
+.emacs.d/ido.last
