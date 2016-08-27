@@ -63,3 +63,5 @@ twu45/
 .boot/
 .android/
 .emacs.d/ido.last
+.vagrant.d/
+VirtualBox VMs/
