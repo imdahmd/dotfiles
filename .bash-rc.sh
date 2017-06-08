@@ -3,3 +3,5 @@
 
 ## Stuff that doesn't fit in any of above files, and doesn't (yet) deserve a file of its own:
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # LSCOLORS for black background shell
+
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
