@@ -65,3 +65,8 @@ twu45/
 .emacs.d/ido.last
 .vagrant.d/
 VirtualBox VMs/
+.IntelliJIdea15/
+.idea-build/
+.jenv/
+.scala_history
+words/
