@@ -102,3 +102,4 @@ go/
 golang/
 terracotta/
 workspace/
+.bash-org.sh
