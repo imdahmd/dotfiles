@@ -13,3 +13,9 @@ export PATH="$HOME/.rvm/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
+
+hitch() {
+  command hitch "$@"
+  if [[ -s "$HOME/.hitch_export_authors" ]] ; then source "$HOME/.hitch_export_authors" ; fi
+}
+alias unhitch='hitch -u'
