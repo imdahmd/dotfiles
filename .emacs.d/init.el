@@ -37,7 +37,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (projectile paradox gradle-mode clj-refactor better-defaults)))
+    (org-beautify-theme yaml-mode fiplr markdown-preview-mode projectile paradox gradle-mode clj-refactor better-defaults)))
  '(paradox-automatically-star t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
