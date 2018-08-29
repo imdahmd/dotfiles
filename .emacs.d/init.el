@@ -30,18 +30,5 @@
 (load-user-file "color-theme-tomorrow.el")
 (load-user-file "tomorrow-night-theme.el")
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (org-beautify-theme yaml-mode fiplr markdown-preview-mode projectile paradox gradle-mode clj-refactor better-defaults)))
- '(paradox-automatically-star t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
