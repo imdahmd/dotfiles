@@ -24,9 +24,7 @@
 
 (load-user-file "emacs-settings.el")
 (load-user-file "requires.el")
-;(load-user-file "clojure.el")
-;(load-user-file "java.el")
-;(load-user-file "paradox.el")
+(load-user-file "clojure.el")
 (load-user-file "color-theme-tomorrow.el")
 (load-user-file "tomorrow-night-theme.el")
 
