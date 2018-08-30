@@ -40,3 +40,12 @@
 						     plain-tex-mode  rust-mode))
 		(let ((mark-even-if-inactive transient-mark-mode))
 		                     (indent-region (region-beginning) (region-end) nil))))))
+
+;; alt+3 == # (For UK keyboard)
+;; https://stackoverflow.com/questions/3977069/emacs-question-hash-key
+(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+
+;; insert today's date: 30-08-2018
+;; https://www.emacswiki.org/emacs/InsertingTodaysDate
+(defun insert-current-date () (interactive)
+       (insert (shell-command-to-string "echo -n $(date +%d-%m-%Y)")))
