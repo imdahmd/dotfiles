@@ -25,6 +25,7 @@
 (load-user-file "emacs-settings.el")
 (load-user-file "requires.el")
 (load-user-file "clojure.el")
+(load-user-file "smartparens.el")
 (load-user-file "color-theme-tomorrow.el")
 (load-user-file "tomorrow-night-theme.el")
 
