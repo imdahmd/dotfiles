@@ -1,7 +1,8 @@
 (defvar clojure-packages '(better-defaults
                       projectile
                       clojure-mode
-                      cider))
+                      cider
+		      magit))
 
 (dolist (p clojure-packages)
   (unless (package-installed-p p)

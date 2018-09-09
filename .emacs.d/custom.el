@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (cider smartparens markdown-mode projectile better-defaults)))
+    (magit cider smartparens markdown-mode projectile better-defaults)))
  '(smartparens-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
