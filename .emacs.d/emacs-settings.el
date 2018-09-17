@@ -49,3 +49,8 @@
 ;; https://www.emacswiki.org/emacs/InsertingTodaysDate
 (defun insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +%d-%m-%Y)")))
+
+;; To ensure environment variables inside Emacs look the same as in the user's shell.
+;; https://github.com/purcell/exec-path-from-shell
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
