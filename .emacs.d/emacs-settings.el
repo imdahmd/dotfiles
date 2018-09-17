@@ -50,6 +50,10 @@
 (defun insert-current-date () (interactive)
        (insert (shell-command-to-string "echo -n $(date +%d-%m-%Y)")))
 
+;; start emacs with frame maximized
+;; https://emacs.stackexchange.com/questions/2999/how-to-maximize-my-emacs-frame-on-start-up
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+
 ;; To ensure environment variables inside Emacs look the same as in the user's shell.
 ;; https://github.com/purcell/exec-path-from-shell
 (when (memq window-system '(mac ns x))
