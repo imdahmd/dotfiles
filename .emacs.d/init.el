@@ -29,6 +29,9 @@
 (load-user-file "smartparens.el")
 (load-user-file "color-theme-tomorrow.el")
 (load-user-file "tomorrow-night-theme.el")
+(load-user-file "multiple-cursors.el")
 
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
+
+(require 'multiple-cursors)
