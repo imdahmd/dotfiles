@@ -1,2 +1,4 @@
+(unless (package-installed-p 'projectile)
+  (package-install 'projectile))
+
 (setq projectile-project-search-path '("~/Projects/"))
-(setq mac-command-modifier 'super)

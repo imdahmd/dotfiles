@@ -58,3 +58,8 @@
 ;; https://github.com/purcell/exec-path-from-shell
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
+
+;; Set command key to super on mac
+;; https://stackoverflow.com/questions/14905133/how-to-set-cmd-key-binding-in-emacs
+(when (memq window-system '(mac ns x))
+  (setq mac-command-modifier 'super))

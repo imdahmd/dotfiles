@@ -8,6 +8,7 @@
 	electric-newline-and-maybe-indent
 	end-of-visual-line
 	indent-for-tab-command
+	kill-visual-line
 	sp-backward-unwrap-sexp
 	))
 
