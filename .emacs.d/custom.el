@@ -6,7 +6,7 @@
  '(ns-command-modifier (quote super))
  '(package-selected-packages
    (quote
-    (exec-path-from-shell magit cider smartparens markdown-mode projectile better-defaults)))
+    (json-mode exec-path-from-shell magit cider smartparens markdown-mode projectile better-defaults)))
  '(smartparens-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
