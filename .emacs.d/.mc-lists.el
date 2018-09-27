@@ -9,6 +9,7 @@
 	end-of-visual-line
 	indent-for-tab-command
 	kill-visual-line
+	markdown-insert-list-item
 	sp-backward-unwrap-sexp
 	))
 
