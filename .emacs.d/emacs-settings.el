@@ -63,3 +63,7 @@
 ;; https://stackoverflow.com/questions/14905133/how-to-set-cmd-key-binding-in-emacs
 (when (memq window-system '(mac ns x))
   (setq mac-command-modifier 'super))
+
+;; Hook ansible mode for yaml
+;; https://github.com/k1LoW/emacs-ansible
+(add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
