@@ -67,3 +67,8 @@
 ;; Hook ansible mode for yaml
 ;; https://github.com/k1LoW/emacs-ansible
 (add-hook 'yaml-mode-hook '(lambda () (ansible 1)))
+
+;; Goto last change
+;; https://stackoverflow.com/questions/16469644/is-there-emacs-capability-for-visiting-last-edits
+;; https://www.emacswiki.org/emacs/GotoLastChange
+(global-set-key "\C-x\C-\\" 'goto-last-change)
