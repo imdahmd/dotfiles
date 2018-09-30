@@ -73,6 +73,10 @@
 ;; https://www.emacswiki.org/emacs/GotoLastChange
 (global-set-key "\C-x\C-\\" 'goto-last-change)
 
+;; golang gofmt before save
+;; https://blog.golang.org/go-fmt-your-code
+(add-hook 'before-save-hook #'gofmt-before-save)
+
 ;; To start a blank google search
 ;; https://github.com/Malabarba/emacs-google-this
 (global-set-key (kbd "C-x g") 'google-this)
