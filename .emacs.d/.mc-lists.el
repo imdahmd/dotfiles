@@ -5,12 +5,14 @@
       '(
 	beginning-of-visual-line
 	cider-eval-last-sexp
+	downcase-region
 	electric-newline-and-maybe-indent
 	end-of-visual-line
 	indent-for-tab-command
 	kill-visual-line
 	markdown-insert-list-item
 	sp-backward-unwrap-sexp
+	upcase-region
 	))
 
 (setq mc/cmds-to-run-once
