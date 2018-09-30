@@ -72,3 +72,7 @@
 ;; https://stackoverflow.com/questions/16469644/is-there-emacs-capability-for-visiting-last-edits
 ;; https://www.emacswiki.org/emacs/GotoLastChange
 (global-set-key "\C-x\C-\\" 'goto-last-change)
+
+;; To start a blank google search
+;; https://github.com/Malabarba/emacs-google-this
+(global-set-key (kbd "C-x g") 'google-this)
