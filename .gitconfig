@@ -1,13 +1,13 @@
-
 [hub]
 protocol = https
 
 [core]
-	excludesfile = /Users/imdad.ahmed/.gitignore_global
-editor = emacs
+excludesfile = /Users/imdad.ahmed/.gitignore_global
+editor = "e"
+
 [user]
-	name = Imdad Ahmed
-	email = imdhmd@gmail.com
+name = Imdad Ahmed
+email = imdhmd@gmail.com
 
 [push]
 default = simple

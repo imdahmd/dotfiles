@@ -1,4 +1,4 @@
-alias e=emacs
+alias e='open -a Emacs'
 alias g=git
 alias ls='ls -G'
 alias la='ls -alt'
