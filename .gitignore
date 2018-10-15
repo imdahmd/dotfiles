@@ -1,3 +1,4 @@
+.local/
 .cisco/
 .aws/
 .emacs.d/projectile-bookmarks.eld
