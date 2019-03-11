@@ -1,3 +1,15 @@
+.azure/
+.boto
+.emacs.d/.emacs.desktop
+.emacs.d/.emacs.desktop.lock
+.helm/
+.jenkins/
+.packer.d/
+.pylint.d/
+.secrets/
+.terraform.d/
+.vagrant/
+.vscode/
 .local/
 .cisco/
 .aws/
