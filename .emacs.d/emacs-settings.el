@@ -84,3 +84,19 @@
 ;; Open files from terminal from within the same frame
 ;; https://stackoverflow.com/questions/18347968/how-to-open-emacs-gui-ide-from-mac-terminal
 (setq ns-pop-up-frames nil)
+
+;; Save emacs state (open files)
+;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
+(desktop-save-mode 1)
+(setq desktop-save t)
+
+;; Asscociate Jenkinsfile with groovy-mode
+(add-to-list 'auto-mode-alist '("Jenkinsfile" . groovy-mode))
+
+;; Spaces instead of tabs
+;; https://www.emacswiki.org/emacs/NoTabs
+(setq-default indent-tabs-mode nil)
+
+;; Sets path to pandoc for preview-markdown to work
+;; https://stackoverflow.com/questions/50452924/markdown-preview-in-emacs-fails-pandoc-error-127
+(setq markdown-command "/usr/local/bin/pandoc")
