@@ -6,7 +6,7 @@
  '(ns-command-modifier (quote super))
  '(package-selected-packages
    (quote
-    (gradle-mode google-this goto-last-change go-mode haskell-mode dockerfile-mode yaml-mode ansible json-mode exec-path-from-shell magit cider smartparens markdown-mode projectile better-defaults)))
+    (terraform-mode groovy-mode jenkins gradle-mode google-this goto-last-change go-mode haskell-mode dockerfile-mode yaml-mode ansible json-mode exec-path-from-shell magit cider smartparens markdown-mode projectile better-defaults)))
  '(smartparens-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
