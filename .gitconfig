@@ -9,6 +9,9 @@ editor = emacs
 name = Imdad Ahmed
 email = imdhmd@gmail.com
 
+[include]
+path = ~/Projects/client/.gitconfig
+
 [push]
 default = simple
 
