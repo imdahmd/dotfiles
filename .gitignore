@@ -1,3 +1,4 @@
+.vnc/
 .azure/
 .boto
 .emacs.d/.emacs.desktop
