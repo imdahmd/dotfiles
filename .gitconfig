@@ -7,7 +7,7 @@ editor = vi
 
 [user]
 name = Imdad Ahmed
-email = imdhmd@gmail.com
+email = imdad.ahmed@gmail.com
 
 [include]
 path = ~/Projects/client/.gitconfig
