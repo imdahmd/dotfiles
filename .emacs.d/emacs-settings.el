@@ -85,6 +85,10 @@
 ;; https://stackoverflow.com/questions/18347968/how-to-open-emacs-gui-ide-from-mac-terminal
 (setq ns-pop-up-frames nil)
 
+;; The emacs window opens in front of my terminal window
+;; https://stackoverflow.com/a/26565655/355280
+(x-focus-frame nil)
+
 ;; Save emacs state (open files)
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
 (desktop-save-mode 1)
