@@ -1,3 +1,6 @@
+.dlv/
+.eclipse/
+.emacs.desktop
 .vnc/
 .azure/
 .boto
