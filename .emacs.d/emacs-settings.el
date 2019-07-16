@@ -81,10 +81,6 @@
 ;; https://github.com/Malabarba/emacs-google-this
 (global-set-key (kbd "C-x g") 'google-this)
 
-;; Open files from terminal from within the same frame
-;; https://stackoverflow.com/questions/18347968/how-to-open-emacs-gui-ide-from-mac-terminal
-(setq ns-pop-up-frames nil)
-
 ;; Save emacs state (open files)
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
 (desktop-save-mode 1)
