@@ -2,8 +2,8 @@
 protocol = https
 
 [core]
-excludesfile = /Users/imdad.ahmed/.gitignore_global
-editor = emacs
+excludesfile = ~/.gitignore_global
+editor = vi
 
 [user]
 name = Imdad Ahmed
