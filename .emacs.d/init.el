@@ -35,3 +35,6 @@
 (load custom-file)
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
+
+(load "server")
+(unless (server-running-p) (server-start))
