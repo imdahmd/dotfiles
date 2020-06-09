@@ -93,6 +93,10 @@
 ;; https://www.emacswiki.org/emacs/NoTabs
 (setq-default indent-tabs-mode nil)
 
+;; Tab size 2
+;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Changing-the-length-of-a-Tab.html
+(setq-default tab-width 2)
+
 ;; Sets path to pandoc for preview-markdown to work
 ;; https://stackoverflow.com/questions/50452924/markdown-preview-in-emacs-fails-pandoc-error-127
 (setq markdown-command "/usr/local/bin/pandoc")
