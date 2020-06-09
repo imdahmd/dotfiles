@@ -3,7 +3,7 @@ protocol = https
 
 [core]
 excludesfile = ~/.gitignore_global
-editor = vi
+editor = emacsclient -c
 
 [user]
 name = Imdad Ahmed
