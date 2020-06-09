@@ -9,8 +9,14 @@ editor = emacsclient -c
 name = Imdad Ahmed
 email = imdad.ahmed@gmail.com
 
-[include]
-path = ~/Projects/client/.gitconfig
+[includeIf "gitdir:~/Projects/"]
+path = ~/Projects/.gitconfig
+
+[includeIf "gitdir:~/Personal/"]
+path = ~/Personal/.gitconfig
+
+[includeIf "gitdir:~/ThoughtWorks/"]
+path = ~/ThoughtWorks/.gitconfig
 
 [push]
 default = simple
