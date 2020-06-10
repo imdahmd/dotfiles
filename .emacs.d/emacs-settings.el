@@ -77,10 +77,6 @@
 ;; https://blog.golang.org/go-fmt-your-code
 (add-hook 'before-save-hook #'gofmt-before-save)
 
-;; To start a blank google search
-;; https://github.com/Malabarba/emacs-google-this
-(global-set-key (kbd "C-x g") 'google-this)
-
 ;; Save emacs state (open files)
 ;; https://www.gnu.org/software/emacs/manual/html_node/emacs/Saving-Emacs-Sessions.html
 (desktop-save-mode 1)
@@ -100,3 +96,7 @@
 ;; Sets path to pandoc for preview-markdown to work
 ;; https://stackoverflow.com/questions/50452924/markdown-preview-in-emacs-fails-pandoc-error-127
 (setq markdown-command "/usr/local/bin/pandoc")
+
+;; Bind magit status
+;; https://magit.vc/manual/magit.html#Getting-Started
+(global-set-key (kbd "C-x g") 'magit-status)
