@@ -100,3 +100,7 @@
 ;; Bind magit status
 ;; https://magit.vc/manual/magit.html#Getting-Started
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;; Kill buffer without the need for confirmation, unless the buffer has been modified
+;; https://stackoverflow.com/questions/6467002/how-to-kill-buffer-in-emacs-without-answering-confirmation
+(global-set-key [(control x) (k)] 'kill-this-buffer)
