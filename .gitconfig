@@ -30,6 +30,6 @@ ci = commit
 cmr = commit --amend --reset-author
 cmrn = commit --amend --reset-author --no-edit
 co = checkout
-lm = log --pretty=format:"%h%x09%an%x09%ar%x09%s"
+lm = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=human
 st = status
 cpk = cherry-pick
