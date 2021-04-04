@@ -6,7 +6,7 @@
  '(ns-command-modifier (quote super))
  '(package-selected-packages
    (quote
-    (geiser clojure-mode ag perspective helm-projectile helm which-key cargo string-inflection rust-mode kotlin-mode terraform-mode groovy-mode jenkins gradle-mode goto-last-change go-mode haskell-mode dockerfile-mode yaml-mode ansible json-mode exec-path-from-shell magit markdown-mode projectile)))
+    (cider geiser clojure-mode ag perspective helm-projectile helm which-key cargo string-inflection rust-mode kotlin-mode terraform-mode groovy-mode jenkins gradle-mode goto-last-change go-mode haskell-mode dockerfile-mode yaml-mode ansible json-mode exec-path-from-shell magit markdown-mode projectile)))
  '(smartparens-global-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
