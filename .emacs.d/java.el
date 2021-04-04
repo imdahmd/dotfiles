@@ -1,2 +1,0 @@
-(package-install 'gradle-mode)
-
