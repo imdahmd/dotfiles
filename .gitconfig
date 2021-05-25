@@ -30,7 +30,7 @@ ci = commit
 cmr = commit --amend --reset-author
 cmrn = commit --amend --reset-author --no-edit
 co = checkout
-lm = log --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=human
+lm = "!git log --pretty=format:'%h|%an|%ad|%s' --date=human | while IFS='|' read hash author date message; do printf '%s %-20s %-20s %s\n' \"$hash\" \"$author\" \"$date\" \"$message\"; done | less"
 st = status
 cpk = cherry-pick
 [credential]
