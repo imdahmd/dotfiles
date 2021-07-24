@@ -11,6 +11,7 @@ alias mcis='mci -DskipTests'
 alias v=vagrant
 alias dm=docker-machine
 alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n"'
+alias gacp='./gradlew aC && g push && say "pushing" || say "checks failed"'
 
 function cloned {
     URL=$1
