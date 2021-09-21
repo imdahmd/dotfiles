@@ -104,3 +104,7 @@
 ;; Kill buffer without the need for confirmation, unless the buffer has been modified
 ;; https://stackoverflow.com/questions/6467002/how-to-kill-buffer-in-emacs-without-answering-confirmation
 (global-set-key [(control x) (k)] 'kill-this-buffer)
+
+;; Add babashka as a recognised interpreted script
+;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Associating-modes-with-files.html
+(add-to-list 'interpreter-mode-alist '("bb" . clojure-mode))
