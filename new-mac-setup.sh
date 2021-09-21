@@ -24,6 +24,7 @@
 # git init .
 # git remote add origin git@github.com:imdahmd/dotfiles.git
 # git pull origin master
+# echo "At this point run package-install-selected-packages on emacs to install all packages"
 
 ### Use iterm from this point on
 brew install --cask iterm2
