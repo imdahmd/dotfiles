@@ -27,4 +27,7 @@
 # echo "At this point run package-install-selected-packages on emacs to install all packages"
 
 ### Use iterm from this point on
-brew install --cask iterm2
+# brew install --cask iterm2
+
+### Install zoom
+brew install --cask zoom
