@@ -1,3 +1,4 @@
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export PS1="\W $ "
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx # LSCOLORS for black background shell
 
