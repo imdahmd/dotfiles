@@ -30,4 +30,8 @@
 # brew install --cask iterm2
 
 ### Install zoom
-brew install --cask zoom
+# brew install --cask zoom
+
+### Install slack
+brew install --cask slack
+
