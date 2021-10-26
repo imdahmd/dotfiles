@@ -12,9 +12,11 @@
         kill-visual-line
         markdown-insert-list-item
         sp-backward-unwrap-sexp
+        sp-forward-barf-sexp
+        sp-forward-slurp-sexp
         upcase-region
         ))
 
 (setq mc/cmds-to-run-once
       '(
-	))
+        ))
