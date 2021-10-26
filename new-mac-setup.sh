@@ -33,5 +33,25 @@
 # brew install --cask zoom
 
 ### Install slack
-brew install --cask slack
+# brew install --cask slack
+
+### Install scheme
+# brew install mit-scheme
+
+### Install signal
+# brew install --cask signal
+
+### Install google drive
+# brew install --cask google-drive
+
+### Install openjdk
+# brew install openjdk@17
+
+### Install jenv
+# brew install jenv
+# jenv add /usr/local/Cellar/openjdk/17/
+# jenv global 17
+
+### Install clojure
+# brew install clojure
 
