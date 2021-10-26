@@ -24,7 +24,6 @@
 
 (load-user-file "emacs-settings.el")
 (load-user-file "requires.el")
-(load-user-file "projectile.el")
 (load-user-file "multiple-cursors.el")
 (load-user-file "cider.el")
 
