@@ -26,8 +26,6 @@
 (load-user-file "requires.el")
 (load-user-file "projectile.el")
 (load-user-file "smartparens.el")
-(load-user-file "color-theme-tomorrow.el")
-(load-user-file "tomorrow-night-theme.el")
 (load-user-file "multiple-cursors.el")
 (load-user-file "cider.el")
 
