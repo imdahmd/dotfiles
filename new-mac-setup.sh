@@ -5,7 +5,7 @@
 # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 ### Install emacs and git
-# brew install emacs
+# brew install --cask emacs
 # brew install git
 
 ### Generate new SSH key and add to ssh-agent
