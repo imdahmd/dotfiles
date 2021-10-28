@@ -16,9 +16,11 @@
         markdown-insert-list-item
         paredit-backward
         paredit-backward-kill-word
+        paredit-doublequote
         paredit-forward
         paredit-forward-delete
         paredit-forward-kill-word
+        paredit-forward-slurp-sexp
         sp-backward-unwrap-sexp
         sp-forward-barf-sexp
         sp-forward-slurp-sexp
