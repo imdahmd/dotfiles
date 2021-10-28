@@ -30,4 +30,5 @@
 (setq mc/cmds-to-run-once
       '(
         help-for-help
+        magit-status
         ))

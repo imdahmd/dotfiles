@@ -10,7 +10,7 @@
 
 
 (def formulae ["git" "mit-scheme" "openjdk@17" "jenv" "clojure"])
-(def casks ["emacs" "iterm2" "zoom" "slack" "signal" "google-drive"])
+(def casks ["emacs" "iterm2" "zoom" "slack" "signal" "google-drive" "spotify"])
 
 (brew-install formulae)
 (brew-install-cask casks)
