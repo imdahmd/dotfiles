@@ -9,7 +9,7 @@
     (babashka.tasks/shell (str "brew install --cask " cask))))
 
 
-(def formulae ["git" "mit-scheme" "openjdk@17" "jenv" "clojure"])
+(def formulae ["git" "mit-scheme" "openjdk@17" "jenv" "clojure" "docker" "colima"])
 (def casks ["emacs" "iterm2" "zoom" "slack" "signal" "google-drive" "spotify"])
 
 (brew-install formulae)
