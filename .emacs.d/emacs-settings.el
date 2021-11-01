@@ -112,3 +112,7 @@
 ;; Add babashka as a recognised interpreted script
 ;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Associating-modes-with-files.html
 (add-to-list 'interpreter-mode-alist '("bb" . clojure-mode))
+
+;; Better window switching
+;; https://github.com/abo-abo/ace-window
+(global-set-key (kbd "M-o") 'ace-window)
