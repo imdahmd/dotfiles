@@ -14,6 +14,7 @@
         kill-region
         kill-visual-line
         markdown-insert-list-item
+        markdown-outdent-or-delete
         paredit-backward
         paredit-backward-kill-word
         paredit-doublequote
@@ -29,6 +30,7 @@
 
 (setq mc/cmds-to-run-once
       '(
+        find-file
         help-for-help
         magit-status
         ))
