@@ -105,9 +105,12 @@
 ;; https://stackoverflow.com/questions/6467002/how-to-kill-buffer-in-emacs-without-answering-confirmation
 (global-set-key [(control x) (k)] 'kill-this-buffer)
 
-;; Use paredit while editing clojure code
+;; Use paredit while editing clojure code, lisp code and in cider repl
 ;; https://github.com/clojure-emacs/clojure-mode
 (add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'lisp-mode-hook #'paredit-mode)
+(add-hook 'cider-mode-hook #'paredit-mode)
+(add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 
 ;; Add babashka as a recognised interpreted script
 ;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Associating-modes-with-files.html

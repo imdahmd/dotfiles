@@ -22,6 +22,7 @@
         paredit-forward-delete
         paredit-forward-kill-word
         paredit-forward-slurp-sexp
+        paredit-open-round
         sp-backward-unwrap-sexp
         sp-forward-barf-sexp
         sp-forward-slurp-sexp
