@@ -1,3 +1,5 @@
+.deps.clj/
+.emacs.d/.lsp-session-v1
 .babashka/
 Blogs/
 .colima/

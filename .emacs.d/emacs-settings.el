@@ -112,6 +112,12 @@
 (add-hook 'cider-mode-hook #'paredit-mode)
 (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
 
+;; Use lsp-mode (clojure-lsp server was installed via brew)
+;; https://clojure-lsp.io/clients/#emacs
+(add-hook 'clojure-mode-hook 'lsp)
+(add-hook 'clojurescript-mode-hook 'lsp)
+(add-hook 'clojurec-mode-hook 'lsp)
+
 ;; Add babashka as a recognised interpreted script
 ;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Associating-modes-with-files.html
 (add-to-list 'interpreter-mode-alist '("bb" . clojure-mode))
