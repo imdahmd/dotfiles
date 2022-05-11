@@ -15,8 +15,8 @@ path = ~/Projects/.gitconfig
 [includeIf "gitdir:~/Personal/"]
 path = ~/Personal/.gitconfig
 
-[includeIf "gitdir:~/ThoughtWorks/"]
-path = ~/ThoughtWorks/.gitconfig
+[includeIf "gitdir:~/Projects/Thoughtworks/"]
+path = ~/Projects/Thoughtworks/.gitconfig
 
 [push]
 default = simple
