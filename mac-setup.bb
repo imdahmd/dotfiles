@@ -9,8 +9,8 @@
     (babashka.tasks/shell (str "brew install --cask " cask))))
 
 
-(def formulae ["git" "mit-scheme" "openjdk@17" "jenv" "clojure" "docker" "colima" "ispell" "pandoc" "clojure-lsp"])
-(def casks ["emacs" "iterm2" "zoom" "slack" "signal" "google-drive" "spotify"])
+(def formulae ["git" "mit-scheme" "openjdk@17" "jenv" "clojure" "docker" "colima" "ispell" "pandoc" "clojure-lsp" "iperf3" "terraform" "azure-cli" "jq" "docker-compose" "docker-credential-helper" "go"])
+(def casks ["emacs" "iterm2" "zoom" "slack" "signal" "google-drive" "spotify" "the-unarchiver" "microsoft-teams" "google-chrome" "microsoft-remote-desktop" "postman"])
 
 (brew-install formulae)
 (brew-install-cask casks)
