@@ -1,3 +1,18 @@
+.IdentityService/
+.ServiceHub/
+.aspnet/
+.azcopy/
+.azure-functions-core-tools/
+.azurefunctions/
+.clj-kondo/
+.datahub/
+.dotnet/
+.nuget/
+.python_history
+archive/
+imdad.ahmed@gmail.com - Google Drive
+imdad.ahmed@thoughtworks.com - Google Drive
+private/
 .deps.clj/
 .emacs.d/.lsp-session-v1
 .babashka/
