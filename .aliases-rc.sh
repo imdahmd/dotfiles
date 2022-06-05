@@ -19,3 +19,8 @@ function cloned {
 
     g clone $URL && cd $REPO
 }
+
+function gign {
+    filename=$1
+    echo "$filename" >> .gitignore
+}
