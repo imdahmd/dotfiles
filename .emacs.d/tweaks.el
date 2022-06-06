@@ -14,7 +14,7 @@
 
 ;; alt+3 == # (For UK keyboard)
 ;; https://stackoverflow.com/questions/3977069/emacs-question-hash-key
-(global-set-key (kbd "M-3") '(lambda () (interactive) (insert "#")))
+(global-set-key (kbd "M-3") (lambda () (interactive) (insert "#")))
 
 ;; start emacs with frame maximized
 ;; https://emacs.stackexchange.com/questions/2999/how-to-maximize-my-emacs-frame-on-start-up
