@@ -17,21 +17,10 @@
   "Load a file is current user's configuration directory"
   (load-file (expand-file-name file user-init-dir)))
 
-(defun read-string-from-file (file)
-  (with-temp-buffer
-    (insert-file-contents (expand-file-name file user-init-dir))
-    (buffer-string)))
-
-(load-user-file "emacs-settings.el")
-(load-user-file "requires.el")
-(load-user-file "multiple-cursors.el")
-(load-user-file "cider.el")
-
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
-(put 'downcase-region 'disabled nil)
-(put 'upcase-region 'disabled nil)
+(load-user-file "requires.el")
+(load-user-file "tweaks.el")
 
 (load "server")
 (unless (server-running-p) (server-start))
-(require 'calfw)
