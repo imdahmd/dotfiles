@@ -125,3 +125,7 @@
 ;; Better window switching
 ;; https://github.com/abo-abo/ace-window
 (global-set-key (kbd "M-o") 'ace-window)
+
+;; Fix for "error in process sentinel: Error retrieving: https://elpa.gnu.org/packages/archive-contents (error connection-failed "connect" :host "elpa.gnu.org" :service 443) [2 times]"
+;; https://emacs.stackexchange.com/questions/68288/error-retrieving-https-elpa-gnu-org-packages-archive-contents
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
