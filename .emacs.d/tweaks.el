@@ -53,3 +53,7 @@
 ;; Fix for "error in process sentinel: Error retrieving: https://elpa.gnu.org/packages/archive-contents (error connection-failed "connect" :host "elpa.gnu.org" :service 443) [2 times]"
 ;; https://emacs.stackexchange.com/questions/68288/error-retrieving-https-elpa-gnu-org-packages-archive-contents
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+;; Fix for "emacs error 'ls does not support --dired'"
+;; https://stackoverflow.com/questions/25125200/emacs-error-ls-does-not-support-dired
+(setq dired-use-ls-dired nil)
