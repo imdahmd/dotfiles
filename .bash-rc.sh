@@ -16,4 +16,8 @@ if [ -d $HOME/.nvm ]; then
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
+if [ -d /opt/homebrew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 export PATH="/usr/local/sbin:$PATH"
