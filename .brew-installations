@@ -1,0 +1,12 @@
+iterm2
+zoom
+google-chrome
+microsoft-teams
+openjdk@18
+jenv
+clojure
+borkdude/brew/babashka
+tree
+
+# casks
+emacs
