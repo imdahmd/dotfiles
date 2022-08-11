@@ -1,5 +1,11 @@
 [hub]
-protocol = https
+protocol = ssh
+
+[github]
+user = imahmd
+
+[core]
+sshCommand = ssh -i ~/.ssh/id_ed25519.pub
 
 [core]
 excludesfile = ~/.gitignore_global
@@ -33,5 +39,3 @@ co = checkout
 lm = "!git log --pretty=format:'%h|%d|%an|%ad|%s' --date=human | while IFS='|' read hash ref author date message; do printf '%s %-70s %-20s %-20s %s\n' \"$hash\" \"$ref\" \"$author\" \"$date\" \"$message\"; done | less"
 st = status
 cpk = cherry-pick
-[credential]
-	helper = osxkeychain
