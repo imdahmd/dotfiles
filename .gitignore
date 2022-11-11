@@ -165,3 +165,6 @@ words-of-wisdom.org
 words/
 workspace/
 installation.log
+.hammerspoon/
+.mongodb/
+.redhat/
