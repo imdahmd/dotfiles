@@ -7,6 +7,20 @@ jenv
 clojure
 borkdude/brew/babashka
 tree
+intellij-idea
+docker
+colima
+awscli
+micronaut
+visual-studio-code
+yq
+terraform
+tfsec
+jq
+mongodb-community@6.0
+slack
+node
 
 # casks
 emacs
+aws-vault
