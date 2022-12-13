@@ -1,4 +1,3 @@
-alias e='emacsclient -c'
 alias g=git
 alias ls='ls -G'
 alias la='ls -alt'
@@ -23,4 +22,9 @@ function cloned {
 function gign {
     filename=$1
     echo "$filename" >> .gitignore
+}
+
+function e {
+    filename=$1
+    emacsclient -c $filename &
 }

@@ -20,7 +20,10 @@ jq
 mongodb-community@6.0
 slack
 node
+docker-compose
+httpie
 
 # casks
 emacs
 aws-vault
+whatsapp
