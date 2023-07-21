@@ -6,19 +6,7 @@ if [ -d /opt/homebrew ]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
-if [ -d $HOMEBREW_PREFIX/opt/openjdk ]; then
-    if ! [ -L /Library/Java/JavaVirtualMachines/openjdk.jdk ]; then
-        echo "Requesting sudo to add a symlink to openjdk for system Java wrappers to find it"
-        sudo ln -sfn $HOMEBREW_PREFIX/opt/openjdk/libexec/openjdk.jdk /Library/Java/JavaVirtualMachines/openjdk.jdk
-    fi
-
-    if which jenv > /dev/null; then
-        jenv add $HOMEBREW_PREFIX/opt/openjdk > /dev/null
-        eval "$(jenv init -)"
-        jenv global $(java --version | head -1 | awk '{print $2}')
-        export JAVA_HOME="$(jenv javahome)"
-    fi
-fi
+JAVA_HOME="/Users/imdahmd/.sdkman/candidates/java/current"
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
@@ -32,3 +20,6 @@ if [ -d $HOME/.nvm ]; then
     [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
     [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
+
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
