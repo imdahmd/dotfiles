@@ -42,9 +42,11 @@
 ;; https://stackoverflow.com/questions/6467002/how-to-kill-buffer-in-emacs-without-answering-confirmation
 (global-set-key [(control x) (k)] 'kill-this-buffer)
 
-;; Use paredit while editing clojure code
+;; Use paredit while editing clojure code and in cider
 ;; https://github.com/clojure-emacs/clojure-mode
+;; https://docs.cider.mx/cider/additional_packages.html
 (add-hook 'clojure-mode-hook #'paredit-mode)
+(add-hook 'cider-repl-mode-hook #'paredit-mode)
 
 ;; Add babashka as a recognised interpreted script
 ;; https://www.gnu.org/software/emacs/manual/html_node/efaq/Associating-modes-with-files.html
@@ -57,3 +59,8 @@
 ;; Fix for "emacs error 'ls does not support --dired'"
 ;; https://stackoverflow.com/questions/25125200/emacs-error-ls-does-not-support-dired
 (setq dired-use-ls-dired nil)
+
+;; cider-connect
+;; default host and port
+(setq cider-known-endpoints
+  '(("nrepl" "localhost" "1582")))

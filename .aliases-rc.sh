@@ -11,6 +11,7 @@ alias v=vagrant
 alias dm=docker-machine
 alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n"'
 alias gacp='./gradlew aC && g push && say "pushing" || say "checks failed"'
+alias nrepl='clj -M:cider-clj'
 
 function cloned {
     URL=$1
