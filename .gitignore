@@ -174,3 +174,4 @@ installation.log
 .hammerspoon/
 .mongodb/
 .redhat/
+.emacs.d/tramp
