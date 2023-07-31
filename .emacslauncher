@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function log {
-    if [ -z $LOGGING_ENABLED ]
+    if [ ! -z $LOGGING_ENABLED ]
     then
         echo $1 >> ~/.emacslauncher.log
     fi
