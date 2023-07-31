@@ -15,7 +15,7 @@ then
     log "Opening $@ in new frame"
     $emacsclient -c -n -a '' -- "$@"
 else
-    if [ ! -z "$@" ]
+    if [ "$#" -ne 0 ]
     then
         log "Opening $@ in existing frame"
         $emacsclient -n -- "$@"
