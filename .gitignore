@@ -175,3 +175,5 @@ installation.log
 .mongodb/
 .redhat/
 .emacs.d/tramp
+.emacs.d/org-persist/
+notes.org

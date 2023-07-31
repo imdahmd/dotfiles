@@ -12,6 +12,7 @@ alias dm=docker-machine
 alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n"'
 alias gacp='./gradlew aC && g push && say "pushing" || say "checks failed"'
 alias nrepl='clj -M:cider-clj'
+alias e='~/.emacslauncher'
 
 function cloned {
     URL=$1
@@ -25,7 +26,3 @@ function gign {
     echo "$filename" >> .gitignore
 }
 
-function e {
-    filename=$1
-    emacsclient -c $filename &
-}

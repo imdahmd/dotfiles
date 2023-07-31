@@ -9,7 +9,7 @@ sshCommand = ssh -i ~/.ssh/id_ed25519.pub
 
 [core]
 excludesfile = ~/.gitignore_global
-editor = emacsclient -c
+editor = ~/.emacslauncher
 
 [user]
 name = Imdad Ahmed

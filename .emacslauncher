@@ -1,0 +1,25 @@
+#!/bin/bash
+
+function log {
+    if [ -z $LOGGING_ENABLED ]
+    then
+        echo $1 >> ~/.emacslauncher.log
+    fi
+}
+
+emacsclient="/opt/homebrew/bin/emacsclient"
+NUM_OF_GUI_FRAMES=`$emacsclient --eval "(length (seq-filter (lambda (f) (eq (framep f) 'ns)) (frame-list)))"`
+
+if [[ $NUM_OF_GUI_FRAMES -eq 0 ]]
+then
+    log "Opening $@ in new frame"
+    $emacsclient -c -n -a '' -- "$@"
+else
+    if [ ! -z "$@" ]
+    then
+        log "Opening $@ in existing frame"
+        $emacsclient -n -- "$@"
+    fi
+fi
+
+$emacsclient -e  "(select-frame-set-input-focus (selected-frame))"
