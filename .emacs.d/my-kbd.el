@@ -2,3 +2,6 @@
 (global-set-key (kbd "s-]") 'goto-next-window)
 (global-set-key (kbd "s-[") 'goto-prev-window)
 (global-set-key (kbd "s-.") 'delete-window)
+(global-set-key (kbd "s-.") 'delete-window)
+(global-set-key (kbd "s-I") 'split-window-below-and-change-focus)
+(global-set-key (kbd "s-i") 'split-window-right-and-change-focus)

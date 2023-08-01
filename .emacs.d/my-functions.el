@@ -13,3 +13,15 @@
 (defun goto-prev-window ()
   (interactive)
   (other-window -1))
+
+(defun split-window-below-and-change-focus ()
+  (interactive)
+  (progn
+    (split-window-below)
+    (goto-next-window)))
+
+(defun split-window-right-and-change-focus ()
+  (interactive)
+  (progn
+    (split-window-right)
+    (goto-next-window)))
