@@ -21,6 +21,8 @@
 (load custom-file)
 (load-user-file "requires.el")
 (load-user-file "tweaks.el")
+(load-user-file "my-functions.el")
+(load-user-file "my-kbd.el")
 
 (load "server")
 (unless (server-running-p) (server-start))
