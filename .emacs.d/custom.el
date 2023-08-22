@@ -7,7 +7,7 @@
    '("06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" default))
  '(ns-command-modifier 'super)
  '(package-selected-packages
-   '(color-theme-sanityinc-tomorrow cider magit yaml-mode paredit clojure-mode))
+   '(markdown-mode color-theme-sanityinc-tomorrow cider magit yaml-mode paredit clojure-mode))
  '(ring-bell-function 'ignore)
  '(visible-bell t))
 (custom-set-faces
