@@ -73,11 +73,33 @@
 (setq cider-known-endpoints
   '(("nrepl" "localhost" "1582")))
 
+;; Project context: show [project-name] in mode-line for git-tracked files
+(require 'project)
+(setq-default mode-line-format
+  (cons '(:eval (when-let ((name (my/project-name)))
+                  (propertize (format "[%s] " name) 'face 'bold)))
+        mode-line-format))
+
 ;; Git commit editing via emacsclient
-;; Load git-commit eagerly so its auto-mode-alist entry for COMMIT_EDITMSG
-;; is registered even before magit has been opened in this session.
-;; Without this, C-c C-c has no effect when git calls emacs as the editor.
+;; Load git-commit eagerly so COMMIT_EDITMSG opens in git-commit-mode.
+;; Load magit-commit so magit-commit-diff is registered on server-switch-hook,
+;; which is what triggers the diff display when git calls emacs as the editor.
 (require 'git-commit nil t)
+(require 'magit-commit nil t)
+
+;; Fix amend diff: magit-commit-diff sets this-commit-command from last-command,
+;; which won't be magit-commit-amend when git is called from the CLI.
+;; Detect amend by checking if COMMIT_EDITMSG already has content (non-comment),
+;; then re-show the diff with the correct HEAD^ range.
+(with-eval-after-load 'magit-commit
+  (advice-add 'magit-commit-diff :after
+              (lambda ()
+                (when (and git-commit-mode
+                           (save-excursion
+                             (goto-char (point-min))
+                             (not (or (eolp) (looking-at "#")))))
+                  (magit-repository-local-set 'this-commit-command 'magit-commit-amend)
+                  (magit-commit-diff--show)))))
 
 ;; Helper to fix "Symbol's function definition is void: magit--any".
 ;; This error comes from stale .elc files after a partial magit update.
