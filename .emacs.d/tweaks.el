@@ -74,17 +74,10 @@
   '(("nrepl" "localhost" "1582")))
 
 ;; Git commit editing via emacsclient
-;; Magit's git-commit-mode activates automatically for COMMIT_EDITMSG files.
-;; Ensure magit is loaded early so the mode is available when git calls us.
-(with-eval-after-load 'magit
-  (require 'git-commit))
-
-;; When finishing a commit message, close the frame if it was opened just for
-;; the commit (i.e. emacs was launched as the git editor).
-(add-hook 'git-commit-post-finish-hook
-          (lambda ()
-            (when (and (boundp 'server-process) server-process)
-              (server-edit))))
+;; Load git-commit eagerly so its auto-mode-alist entry for COMMIT_EDITMSG
+;; is registered even before magit has been opened in this session.
+;; Without this, C-c C-c has no effect when git calls emacs as the editor.
+(require 'git-commit nil t)
 
 ;; Helper to fix "Symbol's function definition is void: magit--any".
 ;; This error comes from stale .elc files after a partial magit update.
