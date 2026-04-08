@@ -72,3 +72,31 @@
 ;; default host and port
 (setq cider-known-endpoints
   '(("nrepl" "localhost" "1582")))
+
+;; Git commit editing via emacsclient
+;; Magit's git-commit-mode activates automatically for COMMIT_EDITMSG files.
+;; Ensure magit is loaded early so the mode is available when git calls us.
+(with-eval-after-load 'magit
+  (require 'git-commit))
+
+;; When finishing a commit message, close the frame if it was opened just for
+;; the commit (i.e. emacs was launched as the git editor).
+(add-hook 'git-commit-post-finish-hook
+          (lambda ()
+            (when (and (boundp 'server-process) server-process)
+              (server-edit))))
+
+;; Helper to fix "Symbol's function definition is void: magit--any".
+;; This error comes from stale .elc files after a partial magit update.
+;; Run M-x my/fix-magit-elc then restart Emacs.
+(defun my/fix-magit-elc ()
+  "Delete stale magit byte-compiled files that cause version-mismatch errors."
+  (interactive)
+  (let ((count 0))
+    (dolist (file (directory-files-recursively
+                   (expand-file-name "elpa" user-emacs-directory)
+                   "\\.elc$"))
+      (when (string-match "magit\\|git-commit\\|transient" file)
+        (delete-file file)
+        (cl-incf count)))
+    (message "Deleted %d stale .elc file(s). Restart Emacs to recompile." count)))

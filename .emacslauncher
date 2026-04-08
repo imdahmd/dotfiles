@@ -1,25 +1,45 @@
 #!/bin/bash
 
 function log {
-    if [ ! -z $LOGGING_ENABLED ]
-    then
-        echo $1 >> ~/.emacslauncher.log
+    if [ -n "$LOGGING_ENABLED" ]; then
+        echo "$1" >> ~/.emacslauncher.log
     fi
 }
 
 emacsclient="/opt/homebrew/bin/emacsclient"
-NUM_OF_GUI_FRAMES=`$emacsclient --eval "(length (seq-filter (lambda (f) (eq (framep f) 'ns)) (frame-list)))"`
 
-if [[ $NUM_OF_GUI_FRAMES -eq 0 ]]
-then
-    log "Opening $@ in new frame"
-    $emacsclient -c -n -a '' -- "$@"
-else
-    if [ "$#" -ne 0 ]
-    then
-        log "Opening $@ in existing frame"
-        $emacsclient -n -- "$@"
+# Detect if called as a git editor (commit message, rebase todo, etc.)
+is_git_editor=false
+for arg in "$@"; do
+    case "$(basename "$arg")" in
+        COMMIT_EDITMSG|MERGE_MSG|git-rebase-todo|TAG_EDITMSG|SQUASH_MSG)
+            is_git_editor=true
+            break
+            ;;
+    esac
+done
+
+# Check if a GUI frame exists; suppress stderr so missing server is silent
+NUM_OF_GUI_FRAMES=$($emacsclient --eval "(length (seq-filter (lambda (f) (eq (framep f) 'ns)) (frame-list)))" 2>/dev/null)
+
+if $is_git_editor; then
+    # Git needs the editor to BLOCK until the file is saved and closed.
+    # Magit's git-commit-mode activates automatically for these files.
+    log "Git editor mode: opening $*"
+    if [ "${NUM_OF_GUI_FRAMES:-0}" -eq 0 ] 2>/dev/null; then
+        $emacsclient -c -a '' -- "$@"
+    else
+        $emacsclient -- "$@"
     fi
+else
+    if [ "${NUM_OF_GUI_FRAMES:-0}" -eq 0 ] 2>/dev/null; then
+        log "Opening $* in new frame"
+        $emacsclient -c -n -a '' -- "$@"
+    else
+        if [ "$#" -ne 0 ]; then
+            log "Opening $* in existing frame"
+            $emacsclient -n -- "$@"
+        fi
+    fi
+    $emacsclient -e "(select-frame-set-input-focus (selected-frame))" 2>/dev/null
 fi
-
-$emacsclient -e  "(select-frame-set-input-focus (selected-frame))"
