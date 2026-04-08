@@ -179,3 +179,4 @@ installation.log
 .emacs.d/tramp
 .emacs.d/org-persist/
 notes.org
+.emacslauncher.log

@@ -1,3 +1,11 @@
+;; auto refresh all buffers when files have changed on disk
+;; https://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
+(global-auto-revert-mode t)
+(setq auto-revert-interval 1)
+;; also auto refresh dired, but be quiet about it
+(setq global-auto-revert-non-file-buffers t)
+(setq auto-revert-verbose nil)
+
 ;; Settings for backup
 ;; Ref: http://stackoverflow.com/questions/151945/how-do-i-control-how-emacs-makes-backup-files
 ;; create ~/.saves dir
