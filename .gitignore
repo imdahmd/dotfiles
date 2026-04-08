@@ -180,3 +180,8 @@ installation.log
 .emacs.d/org-persist/
 notes.org
 .emacslauncher.log
+.claude.json
+.claude/downloads/
+.claude/cache/
+.claude/backups/
+.claude
