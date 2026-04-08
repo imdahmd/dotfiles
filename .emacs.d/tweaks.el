@@ -73,6 +73,13 @@
 (setq cider-known-endpoints
   '(("nrepl" "localhost" "1582")))
 
+;; Project context: show [project-name] in mode-line for git-tracked files
+(require 'project)
+(setq-default mode-line-format
+  (cons '(:eval (when-let ((name (my/project-name)))
+                  (propertize (format "[%s] " name) 'face 'bold)))
+        mode-line-format))
+
 ;; Git commit editing via emacsclient
 ;; Load git-commit eagerly so COMMIT_EDITMSG opens in git-commit-mode.
 ;; Load magit-commit so magit-commit-diff is registered on server-switch-hook,

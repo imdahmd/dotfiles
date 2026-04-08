@@ -1,3 +1,9 @@
+(defun my/project-name ()
+  "Return the current project name based on git root, or nil."
+  (when-let* ((proj (project-current))
+              (root (project-root proj)))
+    (file-name-nondirectory (directory-file-name root))))
+
 (defun quick-list-buffers ()
   "A function to quickly bring up the buffers list"
   (interactive)
