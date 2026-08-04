@@ -31,3 +31,11 @@
   (progn
     (split-window-right)
     (goto-next-window)))
+
+(defun sudo-edit (&optional arg)
+  "Edit currently visited file as root.
+With a prefix ARG, prompt for a file to visit."
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo::" (read-file-name "Find file (as root): ")))
+    (find-file (concat "/sudo::" buffer-file-name))))
