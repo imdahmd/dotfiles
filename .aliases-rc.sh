@@ -26,3 +26,15 @@ function gign {
     echo "$filename" >> .gitignore
 }
 
+function claude {
+    if [ $# -eq 0 ] && [ -f .claude.session ]; then
+        local sid
+        sid=$(cat .claude.session)
+        if [ -n "$sid" ]; then
+            command claude --resume "$sid"
+            return
+        fi
+    fi
+    command claude "$@"
+}
+
