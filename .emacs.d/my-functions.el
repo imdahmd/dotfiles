@@ -1,3 +1,5 @@
+;;; my-functions.el --- custom functions -*- lexical-binding: t; -*-
+
 (defun my/project-name ()
   "Return the current project name based on git root, or nil."
   (when-let* ((proj (project-current))

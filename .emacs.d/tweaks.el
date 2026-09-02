@@ -1,3 +1,5 @@
+;;; tweaks.el --- misc tweaks -*- lexical-binding: t; -*-
+
 ;; auto refresh all buffers when files have changed on disk
 ;; https://stackoverflow.com/questions/1480572/how-to-have-emacs-auto-refresh-all-buffers-when-files-have-changed-on-disk
 (global-auto-revert-mode t)

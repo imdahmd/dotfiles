@@ -185,3 +185,4 @@ notes.org
 .claude/cache/
 .claude/backups/
 .claude
+.emacs.d/eln-cache

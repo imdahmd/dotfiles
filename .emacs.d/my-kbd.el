@@ -1,3 +1,5 @@
+;;; my-kbd.el --- custom keybindings -*- lexical-binding: t; -*-
+
 (global-set-key (kbd "s-B") 'quick-list-buffers)
 (global-set-key (kbd "s-b") 'switch-to-buffer)
 (global-set-key (kbd "s-P") 'project-switch-project)

@@ -1,3 +1,5 @@
+;;; requires.el --- package setup -*- lexical-binding: t; -*-
+
 (require 'package)
 
 (add-to-list
