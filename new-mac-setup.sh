@@ -1,8 +1,38 @@
-### Change shell to bash
-# chsh -s /bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-### Install brew
-# /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+### 1. Change default shell to bash
+# macOS defaults to zsh; switch to the system bash now so we have a known,
+# consistent shell while bootstrapping. We'll switch again to Homebrew's
+# newer bash once it's installed (step 3).
+if [ "$SHELL" != "/bin/bash" ]; then
+    chsh -s /bin/bash
+fi
+
+### 2. Install Homebrew
+if ! command -v brew >/dev/null 2>&1; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+fi
+
+# Make brew available in this script's current session
+if [ -d /opt/homebrew ]; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [ -d /usr/local/Homebrew ]; then
+    eval "$(/usr/local/bin/brew shellenv)"
+fi
+
+### 3. Install latest bash via Homebrew and make it the default shell
+brew install bash
+BREW_BASH="$(brew --prefix)/bin/bash"
+if ! grep -qx "$BREW_BASH" /etc/shells; then
+    echo "$BREW_BASH" | sudo tee -a /etc/shells
+fi
+if [ "$SHELL" != "$BREW_BASH" ]; then
+    chsh -s "$BREW_BASH"
+fi
+
+### 4. Install iTerm2
+brew install --cask iterm2
 
 ### Generate new SSH key and add to ssh-agent
 # ssh-keygen -t ed25519 -C "imdad.ahmed@gmail.com"
