@@ -21,7 +21,33 @@ elif [ -d /usr/local/Homebrew ]; then
     eval "$(/usr/local/bin/brew shellenv)"
 fi
 
-### 3. Install latest bash via Homebrew and make it the default shell
+### 3. Get dotfiles from github.com/imdahmd (bare-repo technique)
+# The repo's git-dir lives outside $HOME so a plain `git` command anywhere
+# under $HOME never picks it up by accident; use the `dotfiles` alias
+# (defined in .aliases-rc.sh) for all dotfiles git operations from now on.
+DOTFILES_GIT_DIR="$HOME/.dotfiles.git"
+if [ ! -d "$DOTFILES_GIT_DIR" ]; then
+    git clone --bare https://github.com/imdahmd/dotfiles.git "$DOTFILES_GIT_DIR"
+
+    dotfiles() { git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" "$@"; }
+
+    # Back up anything a fresh macOS account already has in place that would
+    # otherwise be clobbered by checkout (e.g. a default .bash_profile).
+    BACKUP_DIR="$HOME/.dotfiles-backup"
+    CONFLICTS=$(dotfiles checkout 2>&1 | grep -E "^\s+\." | awk '{print $1}') || true
+    if [ -n "$CONFLICTS" ]; then
+        mkdir -p "$BACKUP_DIR"
+        echo "$CONFLICTS" | while read -r FILE; do
+            mkdir -p "$BACKUP_DIR/$(dirname "$FILE")"
+            mv "$HOME/$FILE" "$BACKUP_DIR/$FILE"
+        done
+        dotfiles checkout
+    fi
+    dotfiles config --local status.showUntrackedFiles no
+    echo "At this point run package-install-selected-packages on emacs to install all packages"
+fi
+
+### 4. Install latest bash via Homebrew and make it the default shell
 brew install bash
 BREW_BASH="$(brew --prefix)/bin/bash"
 if ! grep -qx "$BREW_BASH" /etc/shells; then
@@ -31,24 +57,10 @@ if [ "$SHELL" != "$BREW_BASH" ]; then
     chsh -s "$BREW_BASH"
 fi
 
-### 4. Install iTerm2
+### 5. Install iTerm2
 brew install --cask iterm2
 
-# Restore iTerm2 prefs (incl. Option-key-as-Esc+) from the dotfiles repo, if
-# it's already cloned at this point. Otherwise, run this manually after the
-# "Get .dot-files" step below.
-if [ -f "$HOME/.iterm/com.googlecode.iterm2.plist" ]; then
-    cp "$HOME/.iterm/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/"
-    killall cfprefsd 2>/dev/null || true
-else
-    echo "NOTE: ~/.iterm/com.googlecode.iterm2.plist not found yet." >&2
-    echo "      After cloning the dotfiles repo, run:" >&2
-    echo "      cp ~/.iterm/com.googlecode.iterm2.plist ~/Library/Preferences/ && killall cfprefsd" >&2
-fi
-
-### Get .dot-files from github.com/imdahmd
-# git init .
-# git remote add origin git@github.com:imdahmd/dotfiles.git
-# git pull origin master
-# echo "At this point run package-install-selected-packages on emacs to install all packages"
+# Restore iTerm2 prefs (incl. Option-key-as-Esc+) from the dotfiles repo.
+cp "$HOME/.iterm/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/"
+killall cfprefsd 2>/dev/null || true
 

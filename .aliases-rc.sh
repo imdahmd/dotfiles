@@ -13,6 +13,7 @@ alias uuidgen='uuidgen | tr "[:upper:]" "[:lower:]" | tr -d "\n"'
 alias gacp='./gradlew aC && g push && say "pushing" || say "checks failed"'
 alias nrepl='clj -M:cider-clj'
 alias e='~/.emacslauncher'
+alias dotfiles='git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 
 function cloned {
     URL=$1
