@@ -1,9 +1,9 @@
 My bash, emacs etc personalisation scripts
 
-#### Manual steps
+#### New Mac setup
 ```
-brew install emacs
-brew services start emacs
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/imdahmd/dotfiles/main/new-mac-setup.sh)"
 ```
 
+#### Manual steps
 If the Tomorrow night theme for emacs does not load automatically - run `M-x color-theme-sanityinc-tomorrow-day`
