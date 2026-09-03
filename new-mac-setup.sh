@@ -64,3 +64,9 @@ brew install --cask iterm2
 cp "$HOME/.iterm/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/"
 killall cfprefsd 2>/dev/null || true
 
+### 6. Install must-have tools: Chrome and Emacs
+brew install --cask google-chrome
+brew install --cask emacs-app
+# At this point run package-install-selected-packages on emacs to install all packages.
+# If the Tomorrow night theme doesn't load automatically, run: M-x color-theme-sanityinc-tomorrow-day
+
