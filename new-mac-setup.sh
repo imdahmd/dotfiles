@@ -6,7 +6,7 @@ set -euo pipefail
 # consistent shell while bootstrapping. We'll switch again to Homebrew's
 # newer bash once it's installed (step 3).
 if [ "$SHELL" != "/bin/bash" ]; then
-    chsh -s /bin/bash
+    chsh -s /bin/bash || echo "NOTE: run 'chsh -s /bin/bash' yourself (needs an interactive terminal)." >&2
 fi
 
 ### 2. Install Homebrew
@@ -54,7 +54,7 @@ if ! grep -qx "$BREW_BASH" /etc/shells; then
     echo "$BREW_BASH" | sudo tee -a /etc/shells
 fi
 if [ "$SHELL" != "$BREW_BASH" ]; then
-    chsh -s "$BREW_BASH"
+    chsh -s "$BREW_BASH" || echo "NOTE: run 'chsh -s $BREW_BASH' yourself (needs an interactive terminal)." >&2
 fi
 
 ### 5. Install iTerm2
@@ -69,4 +69,16 @@ brew install --cask google-chrome
 brew install --cask emacs-app
 # At this point run package-install-selected-packages on emacs to install all packages.
 # If the Tomorrow night theme doesn't load automatically, run: M-x color-theme-sanityinc-tomorrow-day
+
+### 7. Configure Dock: small, left-aligned, auto-hidden
+defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock orientation -string left
+defaults write com.apple.dock autohide -bool true
+killall Dock
+
+### 8. Remap Caps Lock to Control (applies to any keyboard; persists across
+### reboots/logins via a LaunchAgent, since `hidutil` itself is per-session)
+mkdir -p "$HOME/Library/LaunchAgents"
+cp "$HOME/.launchd/com.imdahmd.capslock-to-control.plist" "$HOME/Library/LaunchAgents/"
+launchctl load "$HOME/Library/LaunchAgents/com.imdahmd.capslock-to-control.plist"
 
