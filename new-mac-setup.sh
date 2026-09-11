@@ -26,10 +26,10 @@ fi
 # under $HOME never picks it up by accident; use the `dotfiles` alias
 # (defined in .aliases-rc.sh) for all dotfiles git operations from now on.
 DOTFILES_GIT_DIR="$HOME/.dotfiles.git"
+dotfiles() { git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" "$@"; }
+
 if [ ! -d "$DOTFILES_GIT_DIR" ]; then
     git clone --bare https://github.com/imdahmd/dotfiles.git "$DOTFILES_GIT_DIR"
-
-    dotfiles() { git --git-dir="$DOTFILES_GIT_DIR" --work-tree="$HOME" "$@"; }
 
     # Back up anything a fresh macOS account already has in place that would
     # otherwise be clobbered by checkout (e.g. a default .bash_profile).
@@ -43,15 +43,19 @@ if [ ! -d "$DOTFILES_GIT_DIR" ]; then
         done
         dotfiles checkout
     fi
-
-    # Local-only exclude list (never committed itself) — see
-    # $GIT_DIR/info/exclude. Source of truth is the tracked .dotfiles-exclude.
-    # Deliberately NOT setting status.showUntrackedFiles=no: this list already
-    # covers everything else in $HOME, so anything still surfacing as
-    # untracked is genuinely new and worth a look, not noise.
-    cp "$HOME/.dotfiles-exclude" "$DOTFILES_GIT_DIR/info/exclude"
     echo "At this point run package-install-selected-packages on emacs to install all packages"
+else
+    # Already cloned from a prior run of this script — just pull latest.
+    dotfiles pull
 fi
+
+# Local-only exclude list (never committed itself) — see $GIT_DIR/info/exclude.
+# Source of truth is the tracked .dotfiles-exclude. Refreshed on every run so
+# a pulled update to the list takes effect. Deliberately NOT setting
+# status.showUntrackedFiles=no: this list already covers everything else in
+# $HOME, so anything still surfacing as untracked is genuinely new and worth
+# a look, not noise.
+cp "$HOME/.dotfiles-exclude" "$DOTFILES_GIT_DIR/info/exclude"
 
 ### 4. Install latest bash via Homebrew and make it the default shell
 brew install bash
