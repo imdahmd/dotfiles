@@ -43,7 +43,13 @@ if [ ! -d "$DOTFILES_GIT_DIR" ]; then
         done
         dotfiles checkout
     fi
-    dotfiles config --local status.showUntrackedFiles no
+
+    # Local-only exclude list (never committed itself) — see
+    # $GIT_DIR/info/exclude. Source of truth is the tracked .dotfiles-exclude.
+    # Deliberately NOT setting status.showUntrackedFiles=no: this list already
+    # covers everything else in $HOME, so anything still surfacing as
+    # untracked is genuinely new and worth a look, not noise.
+    cp "$HOME/.dotfiles-exclude" "$DOTFILES_GIT_DIR/info/exclude"
     echo "At this point run package-install-selected-packages on emacs to install all packages"
 fi
 

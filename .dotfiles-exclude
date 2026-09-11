@@ -1,3 +1,5 @@
+.dotfiles.git/
+.dotfiles-backup/
 .zsh_history
 .zsh_sessions/
 .build_aliases
