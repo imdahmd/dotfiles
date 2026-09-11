@@ -1,0 +1,11 @@
+{
+  "Profiles": [
+    {
+      "Name": "Default",
+      "Guid": "D648BFE2-E213-4061-BFA0-8E32F3AD59BD",
+      "Normal Font": "Monaco 12",
+      "Option Key Sends": 2,
+      "Right Option Key Sends": 2
+    }
+  ]
+}

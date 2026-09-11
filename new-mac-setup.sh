@@ -70,9 +70,17 @@ fi
 ### 5. Install iTerm2
 brew install --cask iterm2
 
-# Restore iTerm2 prefs (incl. Option-key-as-Esc+) from the dotfiles repo.
-cp "$HOME/.iterm/com.googlecode.iterm2.plist" "$HOME/Library/Preferences/"
-killall cfprefsd 2>/dev/null || true
+# Install the tracked Dynamic Profile (Option-key-as-Esc+, font, etc.).
+# iTerm2 watches this folder and merges it into the matching profile by
+# Guid at runtime, so no plist copy/export dance is needed.
+mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
+cp "$HOME/.iterm/DynamicProfiles/imdahmd.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/imdahmd.json"
+
+# Register the Tomorrow / Tomorrow Night palettes as selectable Color
+# Presets (Profiles > Colors > Color Presets), to switch between them on
+# demand. Opening a .itermcolors file with iTerm2 imports it.
+open -a iTerm "$HOME/.iterm/ColorPresets/Tomorrow.itermcolors"
+open -a iTerm "$HOME/.iterm/ColorPresets/Tomorrow Night.itermcolors"
 
 ### 6. Install must-have tools: Chrome and Emacs
 brew install --cask google-chrome
