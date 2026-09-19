@@ -77,16 +77,20 @@ brew install --cask iterm2
 mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 cp "$HOME/.iterm/DynamicProfiles/imdahmd.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/imdahmd.json"
 
-# Make it the profile new windows/tabs actually use.
-defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "5304373E-BC20-4F79-81A8-90E817A1DF86"
-
 # Register the Tomorrow / Tomorrow Night palettes as selectable Color
 # Presets (Profiles > Colors > Color Presets), to switch between them on
-# demand. Opening a .itermcolors file with iTerm2 imports it. Use the app's
-# bundle path, not its name — Launch Services may not have indexed a
-# just-installed cask by name yet.
+# demand. Opening a .itermcolors file with iTerm2 imports it (and launches
+# the app for the first time). Use the app's bundle path, not its name —
+# Launch Services may not have indexed a just-installed cask by name yet.
 open -a "/Applications/iTerm.app" "$HOME/.iterm/ColorPresets/Tomorrow.itermcolors"
 open -a "/Applications/iTerm.app" "$HOME/.iterm/ColorPresets/Tomorrow Night.itermcolors"
+sleep 2
+
+# Make it the profile new windows/tabs actually use. Set after iTerm2's
+# first launch, since first-run initialization can otherwise overwrite this
+# with its own auto-created profile's Guid.
+defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "5304373E-BC20-4F79-81A8-90E817A1DF86"
+killall cfprefsd 2>/dev/null || true
 
 ### 6. Install must-have tools: Chrome and Emacs
 brew install --cask google-chrome
