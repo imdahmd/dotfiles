@@ -67,29 +67,18 @@ if [ "$SHELL" != "$BREW_BASH" ]; then
     chsh -s "$BREW_BASH" || echo "NOTE: run 'chsh -s $BREW_BASH' yourself (needs an interactive terminal)." >&2
 fi
 
-### 5. Install iTerm2
+### 5. Install iTerm2 and set Option-key-as-Esc+ (for Emacs meta-key bindings)
 brew install --cask iterm2
 
-# Install the tracked Dynamic Profile (Option-key-as-Esc+, font, etc.).
-# iTerm2 watches this folder and loads it as a new profile at runtime (its
-# Guid is dedicated to this profile, not shared with any auto-created one,
-# to avoid "GUID conflict" errors), so no plist copy/export dance is needed.
-mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
-cp "$HOME/.iterm/DynamicProfiles/imdahmd.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/imdahmd.json"
+# Launch once so its default profile exists to configure. Bundle path, not
+# name — Launch Services may not have indexed a just-installed cask yet.
+open -a "/Applications/iTerm.app"
+sleep 3
 
-# Register the Tomorrow / Tomorrow Night palettes as selectable Color
-# Presets (Profiles > Colors > Color Presets), to switch between them on
-# demand. Opening a .itermcolors file with iTerm2 imports it (and launches
-# the app for the first time). Use the app's bundle path, not its name —
-# Launch Services may not have indexed a just-installed cask by name yet.
-open -a "/Applications/iTerm.app" "$HOME/.iterm/ColorPresets/Tomorrow.itermcolors"
-open -a "/Applications/iTerm.app" "$HOME/.iterm/ColorPresets/Tomorrow Night.itermcolors"
-sleep 2
-
-# Make it the profile new windows/tabs actually use. Set after iTerm2's
-# first launch, since first-run initialization can otherwise overwrite this
-# with its own auto-created profile's Guid.
-defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "5304373E-BC20-4F79-81A8-90E817A1DF86"
+ITERM_PLIST="$HOME/Library/Preferences/com.googlecode.iterm2.plist"
+pb() { /usr/libexec/PlistBuddy -c "$1" "$ITERM_PLIST"; }
+pb "Set :New\ Bookmarks:0:Option\ Key\ Sends 2" 2>/dev/null || pb "Add :New\ Bookmarks:0:Option\ Key\ Sends integer 2"
+pb "Set :New\ Bookmarks:0:Right\ Option\ Key\ Sends 2" 2>/dev/null || pb "Add :New\ Bookmarks:0:Right\ Option\ Key\ Sends integer 2"
 killall cfprefsd 2>/dev/null || true
 
 ### 6. Install must-have tools: Chrome and Emacs
