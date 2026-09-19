@@ -40,6 +40,12 @@
 (desktop-save-mode 1)
 (setq desktop-save t)
 
+;; Ensure enabled theme is applied after desktop restores
+(add-hook 'desktop-after-read-hook
+          (lambda ()
+            (dolist (theme custom-enabled-themes)
+              (enable-theme theme))))
+
 ;; Spaces instead of tabs
 ;; https://www.emacswiki.org/emacs/NoTabs
 (setq-default indent-tabs-mode nil)
