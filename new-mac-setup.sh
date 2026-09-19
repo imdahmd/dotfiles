@@ -99,3 +99,6 @@ mkdir -p "$HOME/Library/LaunchAgents"
 cp "$HOME/.launchd/com.imdahmd.capslock-to-control.plist" "$HOME/Library/LaunchAgents/"
 launchctl load "$HOME/Library/LaunchAgents/com.imdahmd.capslock-to-control.plist"
 
+### 9. Make F1-F12 act as standard function keys (not brightness/volume/etc.)
+defaults write -g com.apple.keyboard.fnState -bool true
+
