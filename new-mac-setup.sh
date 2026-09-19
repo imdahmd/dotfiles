@@ -71,10 +71,14 @@ fi
 brew install --cask iterm2
 
 # Install the tracked Dynamic Profile (Option-key-as-Esc+, font, etc.).
-# iTerm2 watches this folder and merges it into the matching profile by
-# Guid at runtime, so no plist copy/export dance is needed.
+# iTerm2 watches this folder and loads it as a new profile at runtime (its
+# Guid is dedicated to this profile, not shared with any auto-created one,
+# to avoid "GUID conflict" errors), so no plist copy/export dance is needed.
 mkdir -p "$HOME/Library/Application Support/iTerm2/DynamicProfiles"
 cp "$HOME/.iterm/DynamicProfiles/imdahmd.json" "$HOME/Library/Application Support/iTerm2/DynamicProfiles/imdahmd.json"
+
+# Make it the profile new windows/tabs actually use.
+defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "5304373E-BC20-4F79-81A8-90E817A1DF86"
 
 # Register the Tomorrow / Tomorrow Night palettes as selectable Color
 # Presets (Profiles > Colors > Color Presets), to switch between them on
