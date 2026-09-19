@@ -82,9 +82,11 @@ defaults write com.googlecode.iterm2 "Default Bookmark Guid" -string "5304373E-B
 
 # Register the Tomorrow / Tomorrow Night palettes as selectable Color
 # Presets (Profiles > Colors > Color Presets), to switch between them on
-# demand. Opening a .itermcolors file with iTerm2 imports it.
-open -a iTerm "$HOME/.iterm/ColorPresets/Tomorrow.itermcolors"
-open -a iTerm "$HOME/.iterm/ColorPresets/Tomorrow Night.itermcolors"
+# demand. Opening a .itermcolors file with iTerm2 imports it. Use the app's
+# bundle path, not its name — Launch Services may not have indexed a
+# just-installed cask by name yet.
+open -a "/Applications/iTerm.app" "$HOME/.iterm/ColorPresets/Tomorrow.itermcolors"
+open -a "/Applications/iTerm.app" "$HOME/.iterm/ColorPresets/Tomorrow Night.itermcolors"
 
 ### 6. Install must-have tools: Chrome and Emacs
 brew install --cask google-chrome
