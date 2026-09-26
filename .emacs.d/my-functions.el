@@ -34,6 +34,18 @@
     (split-window-right)
     (goto-next-window)))
 
+(defun reload-tweaks ()
+  "Reload tweaks.el without restarting Emacs."
+  (interactive)
+  (load-user-file "tweaks.el")
+  (message "Reloaded tweaks.el"))
+
+(defun reload-init ()
+  "Reload the entire init.el, picking up all config files it loads."
+  (interactive)
+  (load-user-file "init.el")
+  (message "Reloaded init.el"))
+
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root.
 With a prefix ARG, prompt for a file to visit."

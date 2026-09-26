@@ -12,7 +12,7 @@
  '(ns-command-modifier 'super)
  '(package-selected-packages
    '(markdown-mode color-theme-sanityinc-tomorrow cider magit yaml-mode
-                   paredit clojure-mode))
+                   paredit clojure-mode treemacs))
  '(ring-bell-function 'ignore)
  '(visible-bell t))
 (custom-set-faces

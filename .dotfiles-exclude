@@ -188,3 +188,8 @@ notes.org
 .claude/backups/
 .claude
 .emacs.d/eln-cache
+
+# Emacs cache/autosave artifacts
+.emacs.d/.cache/
+\#*#
+.#*

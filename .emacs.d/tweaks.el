@@ -22,6 +22,19 @@
 (global-visual-line-mode t)
 (setq org-startup-indented t)
 
+;; Don't word-wrap in the treemacs sidebar: global-visual-line-mode makes
+;; long directory labels wrap across multiple lines instead of truncating,
+;; which looks like broken entries.
+(add-hook 'treemacs-mode-hook (lambda () (visual-line-mode -1)))
+
+;; Disable treemacs' directory flattening: when Python 3 is found, treemacs
+;; auto-sets treemacs-collapse-dirs to 3 (see treemacs-async.el), which merges
+;; single-child directory chains into one row (e.g. "Public/Drop Box",
+;; "Applications/Some.app/Contents"). Force every directory to show as its
+;; own row instead.
+(with-eval-after-load 'treemacs
+  (setq treemacs-collapse-dirs 0))
+
 ;; alt+3 == # (For UK keyboard)
 ;; https://stackoverflow.com/questions/3977069/emacs-question-hash-key
 (global-set-key (kbd "M-3") (lambda () (interactive) (insert "#")))
